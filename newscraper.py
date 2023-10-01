@@ -20,9 +20,12 @@ for item in articles:
         count = 1
         newsitem = item.find('h4', first=True)
         title = newsitem.text
-        
-        print(title)
+        link = item.find('a', first=True).attrs.get('href', None)
+        realLink = "https://news.google.com" + link[1:]
+        print(title, realLink)
     else:
         newsitem = item.find('h4', first=True)
         title = newsitem.text
-        print(title)
+        link = item.find('a', first=True).attrs.get('href', None)
+        realLink = "https://news.google.com" + link[1:]
+        print(title, realLink)
